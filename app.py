@@ -1,73 +1,59 @@
-import datetime as dt
-import numpy as np
-import pandas as pd
-import sqlalchemy
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
-import matplotlib
-matplotlib.use('nbagg')
-from matplotlib import style
-style.use('fivethirtyeight')
-import matplotlib.pyplot as plt
+from flask import (
+    Flask,
+    render_template,
+    jsonify,
+    request,
+    redirect)
+# from flask_pymongo import PyMongo
+import pymongo 
 
+app = Flask(__name__)
 
-from flask import Flask, jsonify
+# mongo = PyMongo(app)
 
+conn = "mongodb://localhost:27017"
+client = pymongo.MongoClient(conn)
+db = client.wine_store_db
+collection = db.items
 
- 
-
-app= Flask(__name__)
 
 @app.route("/")
-def welcome():
-    return ("welcome to our wine review database!")
-
-@app.route("/countries")
-def country():
-    engine = create_engine("sqlite:///wine.sqlite")
-
-    Base = automap_base()
-    Base.prepare(engine, reflect = True)
-
-    session=Session(engine)
-    winebase=Base.classes.wine
-    wine_func = [winebase.country,
-            func.avg(winebase.points),
-            func.avg(winebase.price)]
-    wine_avg=session.query(*wine_func).group_by(winebase.country).order_by(winebase.country).all()
-    return jsonify(wine_avg)
-    # df=pd.DataFrame(wine_avg, columns=["Country","Avg_points","Avg_price"])
-    # df.set_index("Country",inplace=True)
-    # df.plot.bar()
-    # plt.tight_layout()
-    # plt.show()           
+def index():
+    # winelist = list(db.items.find().sort('title', pymongo.ASCENDING))
+    # print(winelist)
+    return render_template("index.html")
 
 
-@app.route("/<price>")
-def search_price(price):
-    engine = create_engine("sqlite:///wine.sqlite")
+@app.route("/finder", methods=["GET","POST"])
+def finder():
+    if request.method=="POST":
+        name = request.form["wineName"]
+        winelist = list(db.items.find({'title': {'$regex': ''+ name +''}}))
+        print(winelist)
+                        
+        # winelist = list(db.items.find({'title': {'$regex': ''+ name +''}}))
+        # return redirect("http://localhost:5000/", code=302)
+        return render_template("ws-index.html", winelist=winelist)
 
-    Base = automap_base()
-    Base.prepare(engine, reflect = True)
+    if request.method=="GET":
+        winelist = list(db.items.find().sort('title', pymongo.ASCENDING).limit(10))
+        return render_template("ws-index.html", winelist=winelist)
 
-    session=Session(engine)
-    winebase=Base.classes.wine
-    wine_func = [winebase.country,winebase.points,winebase.price]
-    wine_avg=session.query(*wine_func).all()
-    
-    for w in wine_avg:
-        wine_p=w.price
-        print(wine_p)
+    return render_template("ws-index.html", winelist=winelist)
 
-        if wine_p == price:
-            return jsonify(wine_avg)
-    return jsonify("No match")
-    # df=pd.DataFrame(wine_avg, columns=["Country","Avg_points","Avg_price"])
-    # df.set_index("Country",inplace=True)
-    # df.plot.bar()
-    # plt.tight_layout()
-    # plt.show()      
+# # Query the database and send the jsonified results
+# @app.route("/send", methods=["GET", "POST"])
+# def send():
+#     if request.method == "GET":
+#         name = request.form["wineName"]
+                
+#         winelist = list(db.items.find({'title': {'$regex': ''+ name +''}}))
+#         return redirect("http://localhost:5000/", code=302)
+
+#     # return render_template("form.html")
+#     return render_template("ws-index.html", winelist=winelist)
+#     # winelist = list(db.items.find().sort('title', pymongo.ASCENDING))
+#     # return render_template("index.html", winelist=winelist)
 
 
 if __name__ == "__main__":
