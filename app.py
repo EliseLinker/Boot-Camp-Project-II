@@ -152,7 +152,13 @@ def map():
     return render_template("map-index.html")
     
 @app.route("/pycharts")
-def correlation():
+def charts():
     return render_template("py-index.html")
+
+
+@app.route("/pycharts2")
+def correlation():
+    return render_template("py2-index.html")
+    
 if __name__ == "__main__":
     app.run(debug=True)
