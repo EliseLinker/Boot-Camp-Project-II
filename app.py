@@ -28,14 +28,15 @@ app= Flask(__name__)
 # collection = db.items
 
 #MongoDB Server on Heroku 
-# mongo_connect_string = 'mongodb://heroku_89070zm5:vsvftlk81u1jbu8aaq0kf5se8l@ds151840.mlab.com:51840/heroku_89070zm5'
-# client2 = pymongo.MongoClient(mongo_connect_string)
-
-
-mongo_connect_string = os.environ.get('MONGODB_URI', '') or "localhost:27017"
+mongo_connect_string = 'mongodb://heroku_89070zm5:vsvftlk81u1jbu8aaq0kf5se8l@ds151840.mlab.com:51840/heroku_89070zm5'
 client2 = pymongo.MongoClient(mongo_connect_string)
 
-db2 = client2.wine_store_db
+# mongodb://heroku_89070zm5:vsvftlk81u1jbu8aaq0kf5se8l@ds151840.mlab.com:51840/heroku_89070zm5
+# mongo_connect_string = os.environ.get('MONGODB_URI', '') or "localhost:27017"
+# client2 = pymongo.MongoClient(mongo_connect_string)
+
+# db2 = client2['wine_store_db']
+db2 = client2['heroku_89070zm5']
 collection2 = db2.items
 
 @app.route("/")
@@ -114,6 +115,7 @@ def finder():
    if request.method == "POST":
        name = request.form["wineName"]
        winelist = list(db2.items.find({'title': {'$regex': '' + name + ''}}))
+    
        print(winelist)
 
        # winelist = list(db.items.find({'title': {'$regex': ''+ name +''}}))
@@ -121,19 +123,36 @@ def finder():
        return render_template("ws-index.html", winelist=winelist)
 
    if request.method == "GET":
-       winelist = list(db.items.find().sort(
-           'title', pymongo.ASCENDING).limit(10))
+    #    winelist = list(db2.items.find().sort(
+    #        'title', pymongo.ASCENDING).limit(10))
        return render_template("ws-index.html")
 
     #    return render_template("ws-index.html", winelist=winelist)
 
    return render_template("ws-index.html", winelist=winelist)
 
-@app.route("/d31")
+@app.route("/d3")
 def graph1():
+    return render_template("d3-index.html")
+
+@app.route("/avg")
+def average():
     return render_template("avg-index.html")
 
+@app.route("/top12countries")
+def top12countries():
+    return render_template("topc-index.html")
 
+@app.route("/top12varieties")
+def top12varieties():
+    return render_template("topv-index.html")
+
+@app.route("/map")
+def map():
+    return render_template("map-index.html")
     
+@app.route("/pycharts")
+def correlation():
+    return render_template("py-index.html")
 if __name__ == "__main__":
     app.run(debug=True)
