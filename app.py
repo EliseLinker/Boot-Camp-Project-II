@@ -132,7 +132,7 @@ def finder():
    return render_template("ws-index.html", winelist=winelist)
 
 @app.route("/d3")
-def charts():
+def graph1():
     return render_template("d3-index.html")
 
 @app.route("/avg")
