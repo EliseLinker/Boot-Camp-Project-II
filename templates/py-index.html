@@ -38,7 +38,7 @@
             <div class="collapse navbar-collapse" id="myBar">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active">
-                        <a >Data Discovery</a>
+                        <a href="/data">Data Discovery</a>
                     </li>
                     <li>
                         <a href="/wine-r&d">Wine R&D</a>
@@ -52,13 +52,13 @@
                         </a>
                         <ul class="dropdown-menu drop_down_color">
                             <li>
-                                <a href="/pycharts2">Findings</a>
+                                <a href="/pycharts">PyCharts</a>
                                 </li>
                                 <li>
                                     <a href="/d3">D3</a>
                                 </li>
                                 <li>
-                                    <a href="/pycharts">Correlation</a>
+                                    <a href="/reg-index">Correlation</a>
                             </li>
                         </ul>
                     </li>
@@ -111,7 +111,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
                     <h4>Price & Points Distribution for Average Price </h4>
                     <a>
-                        <img id='img2' src="{{ url_for('static', filename='assets/minicorr2.png') }}" class="img-responsive" alt="D32">
+                        <img id='img2' src="{{ url_for('static', filename='assets/minicorr.png') }}" class="img-responsive" alt="D32">
                     </a>
                 </div>
             </div>
@@ -144,7 +144,7 @@
         <footer class="footer" role="contentinfo" style="background-color: lightgrey">
             <div class="footer_main_menu text-center">
                 <a href="/" title="Home">Home \ </a>
-                <a href="/data" title="Contact">Cheers</a>
+                <a href="/contact" title="Contact">Contact</a>
             </div>
             <!--Div for footer-->
             <div class="footer_main_social-links">
@@ -164,6 +164,8 @@
         </footer>
     </div>
 </div>
+<script src="{{ url_for('static', filename='js/avePricePoints.js') }}"></script>
+<script src="{{ url_for('static', filename='js/countryAve.json') }}"></script>
 </body>
 
 
