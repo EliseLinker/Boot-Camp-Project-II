@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse" id="myBar">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active">
-                        <a >Data Discovery</a>
+                        <a href="/data">Data Discovery</a>
                     </li>
                     <li>
                         <a href="/wine-r&d">Wine R&D</a>
@@ -50,13 +50,13 @@
                         </a>
                         <ul class="dropdown-menu drop_down_color">
                             <li>
-                                <a href="/pycharts2">Findings</a>
+                                <a href="/pycharts">PyCharts</a>
                             </li>
                             <li>
                                 <a href="/d3">D3</a>
                             </li>
                             <li>
-                                <a href="/pycharts">Correlation</a>
+                                <a href="/reg-index">Regression Analysis</a>
                             </li>
                         </ul>
                     </li>
@@ -96,18 +96,14 @@
                             The wine review data includes country and province of origin, variety, winery, price and points of a wine, along with a review / description.
                             The Binny’s data answers the question – is the wine I want available at Binny’s? <br>
                             <br>
-                            <h4>WHY WE CHOSE IT?</h4> 
+                            <h4>WHY WE CHOSE IT??</h4> 
                             Because data on whisky wasn’t readily available! Actually, the wine data was a very large, and varied set of information. It offered the chance to analyze
                             the data, and develop an application to search the data, and to offer a chance to interact with another data set (Binny’s)<br>
                             <br>
                             <h4>WHY IS NOTEWORTHY?</h4>
                             The number of varieties of wine is immense. Finding the wine or wines that are of interest is difficult.
                             Once you have found a wine of interest, buying it can also be a challenge. Our project was to make the wine finding process
-                            easier!<br>
-                            <h4>HOW WE CLEANED OUR DATA?</h4>
-                            Initially 129971 reviews -> Removed Duplicated Descriptions -> Removed Empty Price ->Removed empty varieties -> Removed Empty Countries
-                            -> Final Dataset == 111511 entries -> 691 varieties -> 42 countries -> over 15k wineries
-
+                            easier!
                             </p>
                 </div>
                 <div class="col-lg-6 col-md-4 col-xs-10">
@@ -116,7 +112,7 @@
                         <div class="col-md-6 col-lg-6">
                             <h5>Top 12 countries by Review Count </h5>
                             <div class="thumbnail text-center">
-                                <a href="/wine-charts">
+                                <a href="/d3">
                                     <img src="{{ url_for('static', filename='assets/top12countries.png') }}" class="img_responsive" alt="Image 1">
                                 </a>
                             </div>
@@ -125,7 +121,7 @@
                         <!-- <div class="thumbnail text-center"> -->
                             <h5>Top 12 varieties by Review Count </h5>
                             <div class="thumbnail text-centers">
-                            <a href="/wine-charts">
+                            <a href="/d3">
                                 <img src="{{ url_for('static', filename='assets/top12varieties.png') }}" class="img_responsive" alt="Image 2">
                             </a>
                         </div>
@@ -135,20 +131,17 @@
                         <div class="col-md-6 col-lg-6">
                             <h5>Average Price & Points by Country </h5>
                             <div class="thumbnail text-center">
-                                <a href="/wine-charts">
+                                <a href="/d3">
                                     <img src="{{ url_for('static', filename='assets/avg-price-points.png') }}" class="img_responsive" alt="Image 3">
                                 </a>
                             </div>
                         </div>
-                    
                     <div class="col-md-6 col-lg-6">
-                        <h5>Wine Review World Counts </h5>
                         <div class="thumbnail text-center">
-                                <a href="/wine-charts">
-                                    <img src="{{ url_for('static', filename='assets/draftmap2.png') }}" class="img_responsive" alt="Image 4">
+                                <a href="/d3">
+                                    <img src="{{ url_for('static', filename='assets/draftmap.png') }}" class="img_responsive" alt="Image 4">
                                 </a>
                         </div>
-                        
                     </div>
                 </div>
             </div>
@@ -166,7 +159,7 @@
         <footer class="footer" role="contentinfo" style="background-color: lightgrey">
             <div class="footer_main_menu text-center">
                 <a href="/" title="Home">Home \ </a>
-                <a href="/data" title="Contact">Cheers</a>
+                <a href="/contact" title="Contact">Contact</a>
             </div>
             <!--Div for footer-->
             <div class="footer_main_social-links">
@@ -187,4 +180,5 @@
     </div>
 </div>
 
+</html>
 </html>

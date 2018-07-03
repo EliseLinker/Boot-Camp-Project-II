@@ -132,7 +132,7 @@ def finder():
    return render_template("ws-index.html", winelist=winelist)
 
 @app.route("/d3")
-def charts():
+def graph1():
     return render_template("d3-index.html")
 
 @app.route("/avg")
@@ -152,13 +152,7 @@ def map():
     return render_template("map-index.html")
     
 @app.route("/pycharts")
-def charts():
-    return render_template("py-index.html")
-
-
-@app.route("/pycharts2")
 def correlation():
-    return render_template("py2-index.html")
-    
+    return render_template("py-index.html")
 if __name__ == "__main__":
     app.run(debug=True)
