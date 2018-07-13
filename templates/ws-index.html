@@ -2,386 +2,358 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Home-ProjectII</title>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Titillium+Web" rel="stylesheet">
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
-  <!--Optional Theme-->
-  <!--<link rel='stylesheet' href="https://bootswatch.com/4/lux/bootstrap.min.css">-->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/ds-style.css') }}">
-  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+    <meta charset="UTF-8">
+    <title>Home-ProjectII</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Titillium+Web" rel="stylesheet">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+    <!--Optional Theme-->
+    <!--<link rel='stylesheet' href="https://bootswatch.com/4/lux/bootstrap.min.css">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ds-style.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
 </head>
 
 <body>
-  <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
-    <!--Use .container-fluid for a full width container-->
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-          aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a id="home" class="active navbar-brand brand_color" href="/">Wines</a>
-      </div>
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+        <!--Use .container-fluid for a full width container-->
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a id="home" class="active navbar-brand brand_color" href="/">Wines</a>
+            </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="myBar">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active">
-            <a href="/data">Data Discovery</a>
-          </li>
-          <li>
-            <a href="/wine-r&d">Wine R&D</a>
-          </li>
-          <li>
-            <a href="/finder">Wine Finder</a>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Summary
-              <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu drop_down_color">
-              <li>
-                <a href="/avg">Charts</a>
-              </li>
-              <li>
-                <a href="/summary">D3</a>
-              </li>
-              <li>
-                <a href="/pycharts">PyCharts</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!--Page General Information-->
-  <!-- <div class="container-fluid">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="myBar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="/data">Data Discovery</a>
+                    </li>
+                    <li>
+                        <a href="/wine-r&d">Wine R&D</a>
+                    </li>
+                    <li>
+                        <a href="/finder">Wine Finder</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Summary
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu drop_down_color">
+                            <li>
+                                <a href="/avg">Charts</a>
+                            </li>
+                            <li>
+                                <a href="/summary">D3</a>
+                            </li>
+                            <li>
+                                <a href="/pycharts">PyCharts</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Page General Information-->
+    <!-- <div class="container-fluid">
     <div class="page-header">
       <div class="row">
       </div>
     </div>
   </div> -->
-  <!-- <div class="container text-center"> -->
-  <!-- <h1 class="jumbotron">Find My Wine At Binny's</h1> -->
-  <div class="container-fluid">
-    <div class="page-header">
-      <div class="row">
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid">
-    <!-- <div class="page-header"> -->
-    <div class="jumbotron text-right">
-      <div class="row">
-        <div class="left col-lg-8 col-md-8 col-xs-12">
-          <h1 id=#"header" style="color: rgb(59, 5, 59); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Does Binny's <br>Have Your Wine?</h1>
-          <h4 style="color: rgb(15, 78, 39); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Unpaid partnership with Binnys</h4>
-          <!-- <img src="fall-rose-wine.jpg" alt="Wine picture" width="300" height="300" class="pull-left img_responsive img-rounded"> -->
+    <!-- <div class="container text-center"> -->
+    <!-- <h1 class="jumbotron">Find My Wine At Binny's</h1> -->
+    <div class="container-fluid">
+        <div class="page-header">
+            <div class="row">
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div>
-    <div class="row">
-      <div class="col-md-offset-2 col-md-8">
-        <form method="POST" action="/finder" role="form" , name="wineform">
-          <div class="form-group">
-            <label for="inputName">Please Enter The Name of the Wine You Want to Search For</label>
-            <input type="text" class="form-control" id="inputName" name="wineName" placeholder="Wine">
-          </div>
-          <input type="submit" value="submit" class="btn btn-success">
-        </form>
-      </div>
+    <div class="container-fluid">
+        <!-- <div class="page-header"> -->
+        <div class="jumbotron text-right">
+            <div class="row">
+                <div class="left col-lg-8 col-md-8 col-xs-12">
+                    <h1 id=# "header" style="color: rgb(59, 5, 59); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Does Binny's
+                        <br>Have Your Wine?</h1>
+                    <h4 style="color: rgb(15, 78, 39); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Unpaid partnership with Binnys</h4>
+                    <!-- <img src="fall-rose-wine.jpg" alt="Wine picture" width="300" height="300" class="pull-left img_responsive img-rounded"> -->
+                </div>
+            </div>
+        </div>
     </div>
+    <div>
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <form method="POST" action="/finder" role="form" , name="wineform">
+                    <div class="form-group">
+                        <label for="inputName">Please Enter The Name of the Wine You Want to Search For</label>
+                        <input type="text" class="form-control" id="inputName" name="wineName" placeholder="Wine">
+                    </div>
+                    <input type="submit" value="submit" class="btn btn-success">
+                </form>
+            </div>
+        </div>
 
-    <!--  *****************    -->
-    <!--  *****************    -->
-    <!--  *****************    -->
-<!-- try carousel -->
-<!--Carousel Wrapper-->
-<!-- <div id="multi-item-example" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
-
+        <!--  *****************    -->
+        <!--  *****************    -->
+        <!--  *****************    -->
+        <!-- try carousel -->
+        <!--Carousel Wrapper-->
+        <!-- <div id="multi-item-example" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
   <!--Controls-->
-  <!-- <div class="controls-top">
+        <!-- <div class="controls-top">
       <a class="black-text" href="#multi-item-example" data-slide="prev"><i class="fa fa-angle-left fa-3x pr-3"></i></a>
       <a class="black-text" href="#multi-item-example" data-slide="next"><i class="fa fa-angle-right fa-3x pl-3"></i></a>
   </div> -->
-  <!--/.Controls-->
+        <!--/.Controls-->
 
-  <!--Slides-->
-  <!-- <div class="carousel-inner" role="listbox"> -->
+        <!--Slides-->
+        <!-- <div class="carousel-inner" role="listbox"> -->
 
-      <!--First slide-->
-      <!-- <div class="carousel-item active">
-
+        <!--First slide-->
+        <!-- <div class="carousel-item active">
           <div class="col-md-3 mb-3">
               <div class="card">
                   <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(38).jpg" alt="Card image cap">
               </div>
           </div>
-
           <div class="col-md-3 mb-3">
               <div class="card">
                   <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(19).jpg" alt="Card image cap">
               </div>
           </div>
-
           <div class="col-md-3 mb-3">
               <div class="card">
                   <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(42).jpg" alt="Card image cap">
               </div>
           </div>
-
           <div class="col-md-3 mb-3">
               <div class="card">
                   <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(8).jpg" alt="Card image cap">
               </div>
           </div>
-
       </div> -->
-      <!--/.First slide-->
+        <!--/.First slide-->
 
-      <!--Second slide-->
-      <!-- <div class="carousel-item">
-
+        <!--Second slide-->
+        <!-- <div class="carousel-item">
           <div class="col-md-3 mb-3">
               <div class="card">
                   <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg" alt="Card image cap">
               </div>
           </div>
-
           <div class="col-md-3 mb-3">
               <div class="card">
                   <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(25).jpg" alt="Card image cap">
               </div>
           </div>
-
           <div class="col-md-3 mb-3">
               <div class="card">
                   <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(47).jpg" alt="Card image cap">
               </div>
           </div>
-
           <div class="col-md-3 mb-3">
               <div class="card">
                   <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(26).jpg" alt="Card image cap">
               </div>
           </div>
-
       </div> -->
-      <!--/.Second slide-->
+        <!--/.Second slide-->
 
-      <!--Third slide-->
-      <!-- <div class="carousel-item">
-
+        <!--Third slide-->
+        <!-- <div class="carousel-item">
           <div class="col-md-3 mb-3">
               <div class="card">
                   <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(64).jpg" alt="Card image cap">
               </div>
           </div>
-
           <div class="col-md-3 mb-3">
               <div class="card">
                   <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(51).jpg" alt="Card image cap">
               </div>
           </div>
-
           <div class="col-md-3 mb-3">
               <div class="card">
                   <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(59).jpg" alt="Card image cap">
               </div>
           </div>
-
           <div class="col-md-3 mb-3">
               <div class="card">
                   <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(63).jpg" alt="Card image cap">
               </div>
           </div>
-
       </div> -->
-      <!--/.Third slide-->
+        <!--/.Third slide-->
 
-  <!-- </div> -->
-  <!--/.Slides-->
+        <!-- </div> -->
+        <!--/.Slides-->
 
-<!-- </div> -->
-<!--/.Carousel Wrapper-->
+        <!-- </div> -->
+        <!--/.Carousel Wrapper-->
 
 
-<!-- end carousel -->
+        <!-- end carousel -->
 
-    <!--      -->
-    <!--      -->
-    <!--      -->
+        <!--      -->
+        <!--      -->
+        <!--      -->
 
-    <!-- *************************     -->
-    <!-- *************************     -->
-    <!-- *************************     -->
+        <!-- *************************     -->
+        <!-- *************************     -->
+        <!-- *************************     -->
 
-<!-- Try Gallery -->
-<!-- <div class="row">
+        <!-- Try Gallery -->
+        <!-- <div class="row">
  <div class="col-md-12">
-
       <div id="mdb-lightbox-ui"></div>
-
       <div class="mdb-lightbox">
-
           <figure class="col-md-4">
               <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(145).jpg" data-size="1600x1067">
                   <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(145).jpg" class="img-fluid">
               </a>
           </figure>
-
           <figure class="col-md-4">
               <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(150).jpg" data-size="1600x1067">
                   <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(150).jpg" class="img-fluid" />
               </a>
           </figure>
-
           <figure class="col-md-4">
               <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(152).jpg" data-size="1600x1067">
                   <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(152).jpg" class="img-fluid" />
               </a>
           </figure>
-
           <figure class="col-md-4">
               <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(42).jpg" data-size="1600x1067">
                   <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(42).jpg" class="img-fluid" />
               </a>
           </figure>
-
           <figure class="col-md-4">
               <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(151).jpg" data-size="1600x1067">
                   <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(151).jpg" class="img-fluid" />
               </a>
           </figure>
-
           <figure class="col-md-4">
               <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(40).jpg" data-size="1600x1067">
                   <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(40).jpg" class="img-fluid" />
               </a>
           </figure>
-
           <figure class="col-md-4">
               <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(148).jpg" data-size="1600x1067">
                   <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(148).jpg" class="img-fluid" />
               </a>
           </figure>
-
           <figure class="col-md-4">
               <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(147).jpg" data-size="1600x1067">
                   <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" class="img-fluid" />
               </a>
           </figure>
-
           <figure class="col-md-4">
               <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(149).jpg" data-size="1600x1067">
                   <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(149).jpg" class="img-fluid" />
               </a>
           </figure>
-
       </div>
-
   </div> -->
-<!-- </div>  -->
-<!-- end gallery  --> 
+        <!-- </div>  -->
+        <!-- end gallery  -->
 
-    <!-- *************************     -->
-    <!-- *************************     -->
-    <!-- *************************     -->
-    
-  <div class="container">
-  <div class="row text-center">
-    <p>Your search returned the following wines:</p>
-    <form method="GET" action="/finder" role="form" , name="wineform"></form>
-  </div>
-      <div class="row">
-        <div class="col-md-12">
-      
-            <!-- <div id="mdb-lightbox-ui"></div> -->
-      
-              <!-- <div class="mdb-lightbox"> -->
-                <!-- <div class="thumbnail"> -->
-                <!-- <figure class="col-md-4"> -->
-                  <!-- <ul class="list-unstyled"> -->
-                  {% for wine in winelist %}
+        <!-- *************************     -->
+        <!-- *************************     -->
+        <!-- *************************     -->
+
+        <div class="container">
+            <div class="row text-center">
+                <p>Your search returned the following wines:</p>
+                <form method="GET" action="/finder" role="form" , name="wineform"></form>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <!-- <div id="mdb-lightbox-ui"></div> -->
+
+                    <!-- <div class="mdb-lightbox"> -->
+                    <!-- <div class="thumbnail"> -->
+                    <!-- <figure class="col-md-4"> -->
+                    <!-- <ul class="list-unstyled"> -->
+                    {% for wine in winelist %}
                     <!-- <figure class="col-lg-3 col-md-4 col-sm-6 col-xs-12"> -->
-                      <ul class="list-unstyled">
+                    <ul class="list-unstyled">
                         <!-- <a href="{{ wine.wineurl }}" font size="6">{{ wine.title }}  -->
-                        
+
                         <!-- <img alt="picture" src="{{wine.image}}"class="img-thumbnail"  > -->
 
-                          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="hovereffect">
-                                <a href="{{ wine.wineurl }}" target=_blank> 
-                                    <img alt="picture" src="{{wine.image}}"class="img-thumbnail"  >
+                                <a href="{{ wine.wineurl }}" target=_blank>
+                                    <img alt="picture" src="{{wine.image}}" class="img-thumbnail">
                                     <!-- <img class="img-responsive" src="{{wine.image}}" alt=""> -->
                                     <div class="overlay">
                                         <h6>{{ wine.title }}</h6>
-                                  
-                                   <!-- <a class="info" href="{{ wine.wineurl }}">{{ wine.wineurl }}</a> -->
+
+                                        <!-- <a class="info" href="{{ wine.wineurl }}">{{ wine.wineurl }}</a> -->
                                     </div>
                             </div>
-                        </div> 
+                        </div>
                         <!-- span class="badge">"{{wine.ratings}}"</span></a><br> -->
                         <!-- <img alt="picture" src="{{wine.image}}"class="img-fluid" data-size="300x300"> -->
                         <!-- img src="cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236" -->
                         </a>
                         <!-- <img class="img" src="{{wine.image}}"> -->
-                      </ui>
-                      </ul>
-                    </figure>  
-                  <!-- </figure> -->
+                        </ui>
+                    </ul>
+                    </figure>
+                    <!-- </figure> -->
                     {% endfor %}
-                <!-- </ol> -->
-            <!-- </div> -->
-        <!-- </div> -->
-  <!-- <ul style="list-style: none;">
+                    <!-- </ol> -->
+                    <!-- </div> -->
+                    <!-- </div> -->
+                    <!-- <ul style="list-style: none;">
        {% for wine in winelist %}
        <li>  <a  href="{{ wine.wineurl }}">{{ wine.title }}</a> <img class = "img" src="{{wine.image}}"></li>
        {% endfor %}
      </ul> -->
-  </div>
-  </div>
+                </div>
+            </div>
 </body>
 
 <div class="container-fluid">
-  <div class="text-center">
-    <footer class="footer" role="contentinfo" style="background-color: lightgrey">
-      <div class="footer_main_menu text-center">
-        <a href="/" title="Home">Home \ </a>
-        <a href="/contact" title="Contact">Contact</a>
-      </div>
-      <!--Div for footer-->
-      <div class="footer_main_social-links">
-        <a href="https://github.com/alexa289/Boot-Camp-Project-II">
-          <i class="fa fa-github"></i>
-        </a>
-        <a href="https://twitter.com/wineenthusiast">
-          <i class="fa fa-twitter"></i>
-        </a>
-        <p class="footer-text">
-          <small> © Copyright NWU Data Science Boot Camp
-            </br>
-            April 2018
-          </small>
-        </p>
-      </div>
-    </footer>
-  </div>
+    <div class="text-center">
+        <footer class="footer" role="contentinfo" style="background-color: lightgrey">
+            <div class="footer_main_menu text-center">
+                <a href="/" title="Home">Home \ </a>
+                <a href="/contact" title="Contact">Contact</a>
+            </div>
+            <!--Div for footer-->
+            <div class="footer_main_social-links">
+                <a href="https://github.com/alexa289/Boot-Camp-Project-II">
+                    <i class="fa fa-github"></i>
+                </a>
+                <a href="https://twitter.com/wineenthusiast">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <p class="footer-text">
+                    <small> © Copyright NWU Data Science Boot Camp
+                        </br>
+                        April 2018
+                    </small>
+                </p>
+            </div>
+        </footer>
+    </div>
 </div>
 
 </html>
