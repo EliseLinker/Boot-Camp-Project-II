@@ -10,10 +10,26 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Titillium+Web" rel="stylesheet">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    <script src="jquery-1.11.2.min.js"></script>
+    
     <!--Optional Theme-->
     <!--<link rel='stylesheet' href="https://bootswatch.com/4/lux/bootstrap.min.css">-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ds-style.css') }}">
     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+    <script type=text/javascript>
+        $(function() {
+            $('a#process_input').bind('click', function() {
+                $.getJSON('/text', {
+                    question: $('input[name="question"]').val(),
+                }, function(data) {
+                    $("#result").text(data.result);
+                });
+                return false;
+                });
+            });
+    </script>
 </head>
 
 <body>
@@ -109,46 +125,47 @@
         <div class="row">
             <div class="left col-lg-6 col-md-8 col-xs-12">
                 <h2>Wine Descriptions Generator</h2>
-                <p align="justify">
-                    Our data is all about wine.
+                <p id="test" align="justify">
+                    This is a placeholder for additional information
                 </p>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4 text-left"></div>
-        <div class="col-md-4 text-center">
-            <button id="search" type="button" class="btn btn-success">Go!</button>
+    <div>
+        <div class="left col-lg-6 col-md-8 col-xs-12">
+            <h4>Do you like our webpage?</h4>
+            <form>
+                <input type=text size=10 name=question>
+                <a href='#' id=process_input><button id="search" type="button" class="btn btn-success">Submit</button></a>
+            </form>
+            <p id=result> 
+                <!-- Jsonified ramdom text generated goes here -->
+            </p>
         </div>
-        <div class="col-md-4 text-right"></div>
     </div>
-    <tbody id="tbody00"></tbody>
+    <!-- <tbody id="tbody00"></tbody>
     <div class="col-lg-12 col-md-12 col-xs-12">
         <div class="row">
             <div class="col-md-12 col-lg-12">
                 <div class="form-group shadow-textarea">
-                    <!-- <form method="GET" action="/text" role="form" , name="mktext"></form> -->
                     <label for="exampleFormControlTextarea6">Shadow and placeholder</label>
                     <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Text goes here..."></textarea>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="clearfix"></div>
     </div>
-    </div>
+</div>
     <!-- jQuery for Bootstrap JavaScript plugins -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>
-        function x () {
-            // make request to the route/text
-            //when I get back the response append to a div tag 
-            //do the onclick function for the button 
-            
-        }
+    <script type="text/javascript">
+    $(document).ready(function (){
+        $("#test").append("<strong>This is a test appending a text str using ajax</strong>")
+    });
+
     </script>
-    <!-- Latest compiled JavaScript -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
+
 </body>
 
 <div class="container-fluid">

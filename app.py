@@ -186,6 +186,9 @@ def tableautaster():
 def tableauwinery():
     return render_template("tableau-win-index.html")
 
+
+
+
 @app.route('/models')
 def models():
     return render_template("ml-index.html")
@@ -208,9 +211,12 @@ def text():
     text2 = ' '.join(text)
     print(text2)
 
-    return jsonify(text2)
-
-
+    answer = request.args.get('question')
+    if str(answer).lower() == 'yes':
+        return jsonify(result=text2)
+    else:
+        return jsonify(result="Try again")
+        
 
 
 if __name__ == "__main__":
