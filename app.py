@@ -176,6 +176,11 @@ def tableauvariety():
 def tableautaster():
     return render_template("tableau-tstr-index.html")
 
+
+@app.route("/tableauwinery")
+def tableauwinery():
+    return render_template("tableau-win-index.html")
+
 @app.route('/models')
 def models():
     return render_template("ml-index.html")
