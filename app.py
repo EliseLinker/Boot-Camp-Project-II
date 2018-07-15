@@ -10,6 +10,8 @@ matplotlib.use('nbagg')
 from matplotlib import style
 style.use('fivethirtyeight')
 import matplotlib.pyplot as plt
+import pickle
+import random
 
 
 from flask import Flask, render_template, jsonify, redirect, request
@@ -173,6 +175,33 @@ def tableauvariety():
 @app.route("/tableautaster")
 def tableautaster():
     return render_template("tableau-tstr-index.html")
+
+@app.route('/models')
+def models():
+    return render_template("ml-index.html")
+
+
+@app.route("/text")
+def text():
+    markov_chain = pickle.load(open("models/mkchain.pk", "rb"))
+    text = []
+    firstw = "START"
+    secondw = "HERE"
+
+    while True:
+        firstw, secondw = secondw, random.choice(markov_chain[(firstw, secondw)])
+        if secondw == "END":
+
+            break
+        text.append(secondw)
+
+    text2 = ' '.join(text)
+    print(text2)
+
+    return jsonify(text2)
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
