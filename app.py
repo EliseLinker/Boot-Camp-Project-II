@@ -154,8 +154,13 @@ def map():
     return render_template("map-index.html")
     
 @app.route("/pycharts")
-def correlation():
+def pycharts():
     return render_template("py-index.html")
+
+
+@app.route("/correlation")
+def correlation():
+    return render_template("reg-index.html")
 
 @app.route("/tableau")
 def tableau():
