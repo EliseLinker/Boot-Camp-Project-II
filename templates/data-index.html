@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Data-ProjectII</title>
+    <title>Home-ProjectII</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -13,6 +13,7 @@
     <!--Optional Theme-->
     <!--<link rel='stylesheet' href="https://bootswatch.com/4/lux/bootstrap.min.css">-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ds-style.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
 </head>
 
 <body>
@@ -34,8 +35,27 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="myBar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
-                        <a href="/data">Data Discovery</a>
+                    <li class="dropdown">
+                        <a href="/tableau-summary" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Wine Dashboards
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu drop_down_color">
+                            <li>
+                                <a href="/tableau">Country</a>
+                            </li>
+                            <li>
+                                <a href="/tableaumap">World Map</a>
+                            </li>
+                            <li>
+                                <a href="/tableauvariety">Variety</a>
+                            </li>
+                            <li>
+                                <a href="/tableautaster">Taster</a>
+                            </li>
+                            <li>
+                                <a href="/tableauwinery">Winery</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="/wine-r&d">Wine R&D</a>
@@ -58,10 +78,10 @@
                                 <a href="/d3">D3</a>
                             </li>
                             <li>
-                                <a href="/reg-index">Regression Analysis</a>
+                                <a href="/correlation">Correlation</a>
                             </li>
                             <li>
-                                <a href="/ml-index">Machine Learning</a>
+                                <a href="/models">Machine Learning</a>
                             </li>
                         </ul>
                     </li>

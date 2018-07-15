@@ -1,31 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project II Wine DS</title>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-    <!-- Library for awesome icons on the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-    
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Titillium+Web" rel="stylesheet">
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
-
-
-    <!-- <link rel="stylesheet" href="./style.css"> -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js">
-    <!-- <link rel="stylesheet" href="./static/css/style.css"> -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/ds-style.css') }}">
-    
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <title>Home-ProjectII</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Titillium+Web" rel="stylesheet">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+  <!--Optional Theme-->
+  <!--<link rel='stylesheet' href="https://bootswatch.com/4/lux/bootstrap.min.css">-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/ds-style.css') }}">
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+</head>
 
 <body>
   <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
@@ -46,8 +35,27 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="myBar">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active">
-            <a href="/data">Data Discovery</a>
+          <li class="dropdown">
+            <a href="/tableau-summary" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Wine Dashboards
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu drop_down_color">
+              <li>
+                <a href="/tableau">Country</a>
+              </li>
+              <li>
+                <a href="/tableaumap">World Map</a>
+              </li>
+              <li>
+                <a href="/tableauvariety">Variety</a>
+              </li>
+              <li>
+                <a href="/tableautaster">Taster</a>
+              </li>
+              <li>
+                <a href="/tableauwinery">Winery</a>
+              </li>
+            </ul>
           </li>
           <li>
             <a href="/wine-r&d">Wine R&D</a>
@@ -60,21 +68,21 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu drop_down_color">
-            <li>
-              <a href="/data">Data Discovery</a>
-            </li>
-            <li>
-              <a href="/pycharts">Correlation</a>
-            </li>
-            <li>
-              <a href="/d3">D3</a>
-            </li>
-            <li>
-              <a href="/reg-index">Regression Analysis</a>
-            </li>
-            <li>
-              <a href="/ml-index">Machine Learning</a>
-            </li>
+              <li>
+                <a href="/data">Data Discovery</a>
+              </li>
+              <li>
+                <a href="/pycharts">Correlation</a>
+              </li>
+              <li>
+                <a href="/d3">D3</a>
+              </li>
+              <li>
+                <a href="/correlation">Correlation</a>
+              </li>
+              <li>
+                <a href="/models">Machine Learning</a>
+              </li>
             </ul>
           </li>
         </ul>
