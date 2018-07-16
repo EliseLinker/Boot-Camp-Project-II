@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home-ProjectII</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Titillium+Web" rel="stylesheet">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  
+  <!-- <script src="jquery-1.11.2.min.js"></script> -->
+  
+  <!--Optional Theme-->
+  <!--<link rel='stylesheet' href="https://bootswatch.com/4/lux/bootstrap.min.css">-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/ds-style.css') }}">
+  
+  
+  <script type=text/javascript>
+    $(function() {
+        $('a#process_input').bind('click', function() {
+            $.getJSON('/variety', {
+                fruitquestion: $('input[name="fruitquestion"]').val(),
+            }, function(data) {
+                $("#result").text(data.result);
+            });
+            return false;
+            });
+        });
+</script>
+
+</head>
+
+<body onload="hideFruitList()">
+          
+    
+  <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+      <!--Use .container-fluid for a full width container-->
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+            aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a id="home" class="active navbar-brand brand_color" href="/">Overview</a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="myBar">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="/tableau-summary" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Wine Dashboards
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu drop_down_color">
+                <li>
+                  <a href="/tableau">Country</a>
+                </li>
+                <li>
+                  <a href="/tableaumap">World Map</a>
+                </li>
+                <li>
+                  <a href="/tableauvariety">Variety</a>
+                </li>
+                <li>
+                  <a href="/tableautaster">Taster</a>
+                </li>
+                <li>
+                  <a href="/tableauwinery">Winery</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="/wine-r&d">Wine R&D</a>
+            </li>
+            <li>
+              <a href="/finder">Wine Finder</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Summary
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu drop_down_color">
+                <li>
+                  <a href="/data">Data Discovery</a>
+                </li>
+                <li>
+                  <a href="/pycharts">PyCharts</a>
+                </li>
+                <li>
+                  <a href="/d3">D3</a>
+                </li>
+                <li>
+                  <a href="/reg-index">Regression Analysis</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <!--Page General Information-->
+  <!-- <div class="container-fluid">
+    <div class="page-header">
+      <div class="row">
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="container text-center"> -->
+  <!-- <h1 class="jumbotron">Find My Wine At Binny's</h1> -->
+  <div class="container-fluid">
+    <div class="page-header">
+      <div class="row">
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <!-- <div class="page-header"> -->
+    <div class="jumbotron text-right">
+      <div class="row">
+        <div class="text-center col-lg-12 col-md-8 col-xs-12">
+          <h1 id=#"header" style="color: rgb(59, 5, 59); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Find A Wine Variety</h1>
+          <h4 style="color: rgb(15, 78, 39); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Not sure which variety to choose or looking for something new to try?</h4>
+          <h4 style="color: rgb(15, 78, 39); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Please answer the following questions to help us find a Wine Variety for you.</h4>
+          <!-- <img src="fall-rose-wine.jpg" alt="Wine picture" width="300" height="300" class="pull-left img_responsive img-rounded"> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+        <div class="left col-lg-6 col-md-6 col-xs-12">
+        <!-- <div class="left col-lg-6 col-md-8 col-xs-12">
+            <h2>Which Wine Variety Would You Like?</h2>
+            <p id="test" align="justify">
+                Please answer the following questions to help us find a Wine Variety for you.
+            </p>
+        </div> -->
+<div>
+  <form action="" id="varietyform" onsubmit="return false;">
+      
+    
+    <fieldset>
+     <!-- <legend>Find a variety!</legend> -->
+     <div class="row">
+        <div class="left col-lg-6 col-md-8 col-xs-12">
+     <label >Do you want your wine to have a fruity flavor?</label>
+     </div>
+     </div>
+     <div class="row">
+        <div class="left col-lg-6 col-md-8 col-xs-12">
+     <input type="radio"  name="selectedfruit" value="Yes"
+     onclick="unhideFruitList()","unhideFruitListlabel()"
+     />
+     Yes, I would like my wine to taste fruity.
+     </div>
+     </div>
+     <div class="row">
+        <div class="left col-lg-6 col-md-8 col-xs-12">
+     <input type="radio"  name="selectedfruit" value="No"
+     onclick="" />
+     No, I do not want my wine to taste fruity.
+     </div> 
+     </div> 
+
+    <div class="row">
+        <div class="left col-lg-6 col-md-8 col-xs-12">
+        </div>
+    </div>
+
+     <label id=fruitListlabel>Choose a fruit flavor you prefer:</label>
+  
+     
+     <select  id="fruitlist" name='fruitlist'
+     onchange="getVariety()">
+     <option value="None">Select a fruit flavor</option>
+     <option value="Blackberry">Blackberry</option>
+     <option value="Black Cherry">Black Cherry</option>
+     <!-- <option value="Cherry">Cherry</option> -->
+     <option value="Currant">Currant</option>
+     <option value="Lime">Lime</option>
+     <option value="Pineapple">Pineapple</option>
+     <option value="Raspberry">Raspberry</option>
+
+    <!-- </select>
+    <br/>
+    <p>
+    <label for='includecandles' class="inlinelabel">
+    Include Candles($5)</label>
+    <input type="checkbox" id="includecandles" name='includecandles'
+    onclick="calculateTotal()" />
+   </p>
+ 
+    <p>
+    <label class="inlinelabel" for='includeinscription'>
+    Include Inscription($20)</label>
+    <input type="checkbox" id="includeinscription"
+    name="includeinscription" onclick="calculateTotal()" />
+ 
+    <input type="text"  id="theinscription"
+    name="theinscription" value="Enter Inscription"  />
+    </p> -->
+    <!-- <div id="finalVariety"></div> -->
+    <div id="finalVariety" style="display: block;">We suggest you try these varietys:</div>
+    </fieldset>
+</form>
+
+<script>
+  function hideFruitList() {
+  document.getElementById("fruitlist").style.visibility = "hidden";
+  document.getElementById("fruitListlabel").style.visibility = "hidden";  
+}
+</script>
+
+<script>
+  function hideFruitListlabel() {
+  document.getElementById("fruitListlabel").style.visibility = "hidden";
+  }
+ </script>        
+
+<script>
+    function unhideFruitList(){
+       document.getElementById("fruitlist").style.visibility = "visible";
+       document.getElementById("fruitListlabel").style.visibility = "visible";
+    }
+    </script>
+
+
+<script>
+    function unhideFruitListlabel(){
+       document.getElementById("fruitListlabel").style.visibility = "visible";
+    }
+</script>
+ 
+</div>
+</div>
+<script src="{{ url_for('static', filename='js/varietyquestions.js') }}"></script>
+
+<!-- 
+  <div class="left col-lg-6 col-md-8 col-xs-12">
+        <h4>Do you like Fruit Flavors?</h4>
+        <form>
+            <input type=text size=10 name=fruitquestion>
+            <a href='#' id=process_input><button id="search" type="button" class="btn btn-success">Submit</button></a>
+        </form>
+        <p id=result> 
+            <!-- Jsonified ramdom text generated goes here -->
+        <!-- </p> -->
+    <!-- </div> --> 
+  </div>
+</div>
+</body>
+
+<div class="container-fluid">
+  <div class="text-center">
+    <footer class="footer" role="contentinfo" style="background-color: lightgrey">
+      <div class="footer_main_menu text-center">
+        <a href="/" title="Home">Home \ </a>
+        <a href="/contact" title="Contact">Contact</a>
+      </div>
+      <!--Div for footer-->
+      <div class="footer_main_social-links">
+        <a href="https://github.com/alexa289/Boot-Camp-Project-II">
+          <i class="fa fa-github"></i>
+        </a>
+        <a href="https://twitter.com/wineenthusiast">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <p class="footer-text">
+          <small> © Copyright NWU Data Science Boot Camp
+            </br>
+            April 2018
+          </small>
+        </p>
+      </div>
+    </footer>
+  </div>
+</div>
+
+</html>

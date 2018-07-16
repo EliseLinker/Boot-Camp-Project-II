@@ -187,12 +187,22 @@ def tableauwinery():
     return render_template("tableau-win-index.html")
 
 
+@app.route('/variety_questionaire')
+def variety_questionaire():
+    return render_template("qu-index.html")
+
+@app.route('/variety')
+def variety():
+    answer = request.args.get('fruitquestion')
+    if str(answer).lower() == 'yes':
+        return jsonify(result='Please Pick a Fruit')
+    else:
+        return jsonify(result="Try again")
 
 
 @app.route('/models')
 def models():
     return render_template("ml-index.html")
-
 
 @app.route("/text")
 def text():
