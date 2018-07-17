@@ -53,7 +53,7 @@ $(function hideTotal()
 
 </head>
 
-<body onload="hideFruitList(); hidenoFruitListlabel(); hideNoFruitRadio()">
+<body onload="hideNoFruitRadio();hidenoFruitListlabel(); hideFruitTypeRadio();hideFruitTypeListlabel(); hideFruitTypeDropDowns();hideFruitTypeDropDownlabel;hideFruitTypeDropDownlabel()">
     
   <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
       <!--Use .container-fluid for a full width container-->
@@ -171,7 +171,7 @@ $(function hideTotal()
      <div class="row">
         <div class="left col-lg-6 col-md-8 col-xs-12">
      <input type="radio"  name="selectedfruit" value="Yes"
-     onclick="unhideFruitList(); unhideFruitListlabel(); hidenoFruitListlabel(); hideNoFruitRadio()"
+     onclick="unhideFruitTypeRadio(); unhideFruitTypeListlabel(); hidenoFruitListlabel(); hideNoFruitRadio()"
      />
      Yes, I would like my wine to taste fruity.
      </div>
@@ -179,30 +179,113 @@ $(function hideTotal()
      <div class="row">
         <div class="left col-lg-6 col-md-8 col-xs-12">
      <input type="radio"  name="selectedfruit" value="No"
-     onclick="hideFruitList(); unhidenoFruitListlabel(); unhideNoFruitRadio() "
+     onclick="hideFruitTypeDropDowns(); hideFruitTypeDropDownlabel(); hideFruitTypeRadio(); hideFruitTypeListlabel(); unhidenoFruitListlabel(); unhideNoFruitRadio() "
     />
      No, I do not want my wine to taste fruity.
      </div> 
      </div> 
 
      <br/>
-    
-     <label id=fruitListlabel>Choose a fruit flavor you prefer:</label>
+
+     <label id=fruittypeListlabel>Choose a type of fruit flavor you prefer:</label>
+     <div class="row">
+        <div class="left col-lg-6 col-md-8 col-xs-12">
+     <!-- <label >Choose your favorite type of Fruit Flavor</label> -->
+     </div>
+     </div>
+     <div class="row">
+        <div class="left col-lg-6 col-md-8 col-xs-12">
+     <input type="radio" id="selectedfruittype1"  name="selectedfruittype" value="Berry"
+     onclick="hideFruitTypeDropDowns(); hideFruitTypeDropDownlabel(); unhideberryFruitTypeDropDowns(); hidenoFruitListlabel(); hideNoFruitRadio()"
+     />
+     <label id=radioft1>Berry</label> 
+     </div>
+     </div>
+     <div class="row">
+        <div class="left col-lg-6 col-md-8 col-xs-12">
+     <input type="radio" id="selectedfruittype2" name="selectedfruittype" value="citrus"
+     onclick="hideFruitTypeDropDowns(); hideFruitTypeDropDownlabel(); unhidecitrusFruitTypeDropDowns();  hidenoFruitListlabel(); hideNoFruitRadio()"
+    />
+    <label id=radioft2>Citrus </label> 
+     </div> 
+     </div> 
+     <div class="row">
+        <div class="left col-lg-6 col-md-8 col-xs-12">
+     <input type="radio" id="selectedfruittype3" name="selectedfruittype" value="Tree"
+     onclick="hideFruitTypeDropDowns(); hideFruitTypeDropDownlabel(); unhidetreeFruitTypeDropDowns();  hidenoFruitListlabel(); hideNoFruitRadio()"
+    />
+    <label id=radioft3>Fruit that grows on trees like Apples</label> 
+     </div> 
+     </div> 
+     <div class="row">
+        <div class="left col-lg-6 col-md-8 col-xs-12">
+     <input type="radio" id="selectedfruittype4"  name="selectedfruittype" value="tropical"
+     onclick="hideFruitTypeDropDowns(); hideFruitTypeDropDownlabel(); unhidetropicalFruitTypeDropDowns();  hidenoFruitListlabel(); hideNoFruitRadio()"
+    />
+    <label id=radioft4>Tropical Fruit </label>
+     </div> 
+     </div> 
+
+<!-- fruit flavor type drop downs  -->
+
+     <label id=favfruitListlabel>Pick Your Favorite Fruit:</label>
   
-     
+     <!-- <label id=berryListlabel>Choose a fruit flavor you prefer:</label>  -->
+
+     <select  id="berrylist" name='berrylist'
+     onchange="displayberryVariety()">
+     <option value="None">Select your favorite berry</option>
+     <option value="Blackberry">Blackberry</option>
+     <option value="Black Cherry">Black Cherry</option>
+     <option value="Cherry">Cherry</option>
+     <option value="Currants">Currants</option>
+     <option value="Raspberry">Raspberry</option>
+     </select>
+
+     <!-- <label id=tropicalListlabel>Choose a fruit flavor you prefer:</label> -->
+
+    <select  id="tropicallist" name='tropicallist'
+    onchange="displaytropicalVariety()">
+    <option value="None">Select your favorite tropical fruit</option>
+    <option value="Pineapple">Pineapple</option>
+    </select>
+
+    <!-- <label id=citrusListlabel>Choose a fruit flavor you prefer:</label> -->
+    <select  id="citruslist" name='citruslist'
+    onchange="displaycitrusVariety()">
+    <option value="None">Select your favorite citrus fruit</option>
+    <option value="Grapefruit">Grapefruit</option>
+    <option value="Lemon">Lemon</option>
+    <option value="Lime">Lime</option>
+    <option value="Tangerine">Tangerine</option>
+    </select>
+
+    <!-- <label id=treeListlabel>Choose a fruit flavor you prefer:</label> -->
+    <select  id="treelist" name='treelist'
+    onchange="displaytreeVariety()">
+    <option value="None">Select your favorite tree fruit </option>
+    <option value="Apple">Apple</option>
+    <option value="Green Apple">Green Apple</option>
+    <option value="Peach">Peach</option>
+    <option value="Pear">Pear</option>
+    <option value="Plum">Plum</option>
+    <option value="Dragon Fruit">Dragon Fruit</option>
+    </select>
+
+    <!-- <label id=fruitListlabel>Choose a fruit flavor you prefer:</label>
+      
      <select  id="fruitlist" name='fruitlist'
      onchange="displayVariety()">
      <option value="None">Select a fruit flavor</option>
      <option value="Blackberry">Blackberry</option>
      <option value="Black Cherry">Black Cherry</option>
-     <!-- <option value="Cherry">Cherry</option> -->
-     <option value="Currant">Currant</option>
+     <option value="Currants">Currants</option>
      <option value="Lime">Lime</option>
      <option value="Pineapple">Pineapple</option>
      <option value="Raspberry">Raspberry</option>
-    </select>
-
-     <div class="row">
+    </select> -->
+ 
+    <div class="row">
       <div class="left col-lg-6 col-md-8 col-xs-12">
 
 
@@ -304,14 +387,97 @@ $(function hideTotal()
   }
  </script>        
 
+<!-- hide unhide fruit type drop downs -->
 <script>
-    function unhideFruitList(){
-       document.getElementById("fruitlist").style.visibility = "visible";
-       document.getElementById("fruitListlabel").style.visibility = "visible";
+    function unhideBerryDropDown(){
+       document.getElementById("berrylist").style.visibility = "visible";
+       document.getElementById("berryListlabel").style.visibility = "visible";
     }
     </script>
+<script>
+    function unhideCitrusDropDown(){
+       document.getElementById("citruslist").style.visibility = "visible";
+       document.getElementById("citrusListlabel").style.visibility = "visible";
+    }
+    </script>
+    <script>
+        function unhideTreeDropDown(){
+           document.getElementById("treelist").style.visibility = "visible";
+           document.getElementById("treeListlabel").style.visibility = "visible";
+        }
+        </script>
+
+<script>
+    function unhideTropicalDropDown(){
+       document.getElementById("tropicallist").style.visibility = "visible";
+       document.getElementById("tropicalListlabel").style.visibility = "visible";
+    }
+</script>
+
+<script>
+    function hideFruitTypeDropDowns() {
+    document.getElementById("berrylist").style.display = "none";
+    document.getElementById("citruslist").style.display = "none";
+    document.getElementById("tropicallist").style.display = "none";
+    document.getElementById("treelist").style.display = "none"; 
+    document.getElementById("favfruitListlabel").style.display = "none"; 
+  }
+  </script>
+  
+  
+  <script>
+      function hideFruitTypeDropDownlabel() {
+      document.getElementById("favfruitListlabel").style.visibility = "hidden";
+      }
+     </script>        
+  
+  <script>
+      function unhideberryFruitTypeDropDowns() {
+      document.getElementById("berrylist").style.display = "block";
+      document.getElementById("favfruitListlabel").style.visibility = "visible";
+      
+    }
+    </script> 
+  
+
+  <script>
+      function unhidecitrusFruitTypeDropDowns() {
+      document.getElementById("citruslist").style.display = "block";
+      document.getElementById("favfruitListlabel").style.visibility = "visible";
+      
+    }
+    </script> 
+
+<script>
+    function unhidetreeFruitTypeDropDowns() {
+    document.getElementById("treelist").style.display = "block";
+    document.getElementById("favfruitListlabel").style.visibility = "visible";
+    
+  }
+  </script> 
+
+<script>
+    function unhidetropicalFruitTypeDropDowns() {
+    document.getElementById("tropicallist").style.display = "block";
+    document.getElementById("favfruitListlabel").style.visibility = "visible";
+    
+  }
+  </script> 
 
 
+<script>
+    function hideFruitListlabel() {
+    document.getElementById("fruitListlabel").style.visibility = "hidden";
+    }
+   </script>        
+  
+  <script>
+      function unhideFruitList(){
+         document.getElementById("fruitlist").style.visibility = "visible";
+         document.getElementById("fruitListlabel").style.visibility = "visible";
+      }
+      </script>
+  
 <script>
     function unhideFruitListlabel(){
        document.getElementById("fruitListlabel").style.visibility = "visible";
@@ -365,6 +531,77 @@ $(function hideTotal()
     }
    </script>
 
+
+
+<script>
+    function hideFruitTypeRadio() {
+    console.log("in hideFruitTypeRadio")
+    
+    document.getElementById("selectedfruittype1").style.visibility = "hidden";
+    document.getElementById("radioft1").style.visibility = "hidden";
+    
+    document.getElementById("selectedfruittype2").style.visibility = "hidden";
+    document.getElementById("radioft2").style.visibility = "hidden";
+    
+    document.getElementById("selectedfruittype3").style.visibility = "hidden";
+    document.getElementById("radioft3").style.visibility = "hidden";
+    
+    document.getElementById("selectedfruittype4").style.visibility = "hidden";
+    document.getElementById("radioft4").style.visibility = "hidden";
+  }
+  </script>
+  
+  <script>
+    function hideFruitTypeListlabel() {
+    console.log("in hideFruitTypeListLabel")
+    document.getElementById("fruittypeListlabel").style.visibility = "hidden";
+    }
+   </script>
+
+
+<script>
+    function unhideFruitTypeRadio() {
+    console.log("in unhideFruitTypeRadio")
+    
+    document.getElementById("selectedfruittype1").style.visibility = "visible";
+    document.getElementById("radioft1").style.visibility = "visible";
+    
+    document.getElementById("selectedfruittype2").style.visibility = "visible";
+    document.getElementById("radioft2").style.visibility = "visible";
+    
+    document.getElementById("selectedfruittype3").style.visibility = "visible";
+    document.getElementById("radioft3").style.visibility = "visible";
+    
+    document.getElementById("selectedfruittype4").style.visibility = "visible";
+    document.getElementById("radioft4").style.visibility = "visible";
+  }
+  </script>
+  
+  <script>
+    function unhideFruitTypeListlabel() {
+    console.log("in hideFruitTypeListLabel")
+    document.getElementById("fruittypeListlabel").style.visibility = "visible";
+    }
+   </script>
+
+<script>
+    function unhideFruitTypeRadio() {
+    console.log("in unhideFruitTypeRadio")
+    
+    document.getElementById("selectedfruittype1").style.visibility = "visible";
+    document.getElementById("radioft1").style.visibility = "visible";
+    
+    document.getElementById("selectedfruittype2").style.visibility = "visible";
+    document.getElementById("radioft2").style.visibility = "visible";
+    
+    document.getElementById("selectedfruittype3").style.visibility = "visible";
+    document.getElementById("radioft3").style.visibility = "visible";
+    
+    document.getElementById("selectedfruittype4").style.visibility = "visible";
+    document.getElementById("radioft4").style.visibility = "visible";
+  }
+  </script>
+
 </div>
 </div>
 
@@ -374,11 +611,21 @@ $(function hideTotal()
   fruit_variety["None"]='';
   fruit_variety["Blackberry"]='Melbac';
   fruit_variety["Black Cherry"]='Pinot Noir';
-              // fruit_variety["Cherry"]=7; 
-  fruit_variety["Currant"]='Cabernet Sauvignon, Zinfandel, or Merlot';
+  fruit_variety["Cherry"]='Red Blend, Pinot Noir, Syrah, Rose, Zinfadel, or Merlot';
+  fruit_variety["Currants"]='Cabernet Sauvignon, Zinfandel, or Merlot';
   fruit_variety["Lime"]='Sauvignon Blanc';
   fruit_variety["Pineapple"]='Chardonay';
+  fruit_variety["Lemon"]='Reisling';
   fruit_variety["Raspberry"]='Pinot Noir, Syrah, Rose, Zinfadel, or Merlot';
+  fruit_variety["Apple"]='Reisling, Chardonnay, Sauvignon Blanc';
+  fruit_variety["Green Apple"]='Sauvignon Blanc';
+  fruit_variety["Peach"]='Reisling';
+  fruit_variety["Plum"]='Red Blend or Melbac';
+  fruit_variety["Pear"]='Chardonnay';
+  fruit_variety["Lemon"]='Reisling';
+  fruit_variety["Grapefruit"]='Reisling or Sauvignon Blanc';
+  fruit_variety["Tangerine"]='Reisling';
+  fruit_variety["Dragon Fruit"]='Beer';
     console.log("after fruit variety array")
     console.dir(fruit_variety)
 
@@ -405,7 +652,7 @@ $(function hideTotal()
     //Get a reference to the form id="cakeform"
     var theForm = document.forms["varietyform"];
     //Get a reference to the select id="filling"
-     var selectedFruit = theForm.elements["fruitlist"];
+     var selectedFruit = theForm.elements["berrylist"];
  
     //set cakeFilling Price equal to value user chose
     //For example filling_prices["Lemon".value] would be equal to 5
@@ -416,6 +663,93 @@ $(function hideTotal()
 }
 </script>
  
+ 
+<!-- Functions  -->
+<script >
+    function getberryFruit()
+    {
+      console.log("in getberryFruit")
+//This function finds the filling price based on the
+//drop down selection
+  var suggestedVariety="";
+  //Get a reference to the form id="cakeform"
+  var theForm = document.forms["varietyform"];
+  //Get a reference to the select id="filling"
+   var selectedFruit = theForm.elements["berrylist"];
+
+  //set cakeFilling Price equal to value user chose
+  //For example filling_prices["Lemon".value] would be equal to 5
+  suggestedVariety = fruit_variety[selectedFruit.value];
+  console.log(suggestedVariety)
+  //finally we return cakeFillingPrice
+  return suggestedVariety;
+}
+</script>
+<!-- Functions  -->
+<script >
+    function getcitrusFruit()
+    {
+      console.log("in getcitrusFruit")
+//This function finds the filling price based on the
+//drop down selection
+  var suggestedVariety="";
+  //Get a reference to the form id="cakeform"
+  var theForm = document.forms["varietyform"];
+  //Get a reference to the select id="filling"
+   var selectedFruit = theForm.elements["citruslist"];
+
+  //set cakeFilling Price equal to value user chose
+  //For example filling_prices["Lemon".value] would be equal to 5
+  suggestedVariety = fruit_variety[selectedFruit.value];
+  console.log(suggestedVariety)
+  //finally we return cakeFillingPrice
+  return suggestedVariety;
+}
+</script>
+<!-- Functions  -->
+<script >
+    function gettreeFruit()
+    {
+      console.log("in gettreeFruit")
+//This function finds the filling price based on the
+//drop down selection
+  var suggestedVariety="";
+  //Get a reference to the form id="cakeform"
+  var theForm = document.forms["varietyform"];
+  //Get a reference to the select id="filling"
+   var selectedFruit = theForm.elements["treelist"];
+
+  //set cakeFilling Price equal to value user chose
+  //For example filling_prices["Lemon".value] would be equal to 5
+  suggestedVariety = fruit_variety[selectedFruit.value];
+  console.log(suggestedVariety)
+  //finally we return cakeFillingPrice
+  return suggestedVariety;
+}
+</script>
+
+<!-- Functions  -->
+<script >
+    function gettropicalFruit()
+    {
+      console.log("in gettropicalFruit")
+//This function finds the filling price based on the
+//drop down selection
+  var suggestedVariety="";
+  //Get a reference to the form id="cakeform"
+  var theForm = document.forms["varietyform"];
+  //Get a reference to the select id="filling"
+   var selectedFruit = theForm.elements["tropicallist"];
+
+  //set cakeFilling Price equal to value user chose
+  //For example filling_prices["Lemon".value] would be equal to 5
+  suggestedVariety = fruit_variety[selectedFruit.value];
+  console.log(suggestedVariety)
+  //finally we return cakeFillingPrice
+  return suggestedVariety;
+}
+</script>
+
  <script >
     function getNoFruit()
     {
@@ -458,7 +792,91 @@ $(function hideTotal()
         
         }
       </script>
+ <script>  
+    function displayberryVariety()
+    {
+        console.log("in displayVariety")
+        //Here we get the total price by calling our function
+        //Each function returns a number so by calling them we add the values they return together
+        
+        
+        var selectedVariety = getberryFruit() 
+        
+        console.log(selectedVariety)
+        //display the result
+        // document.getElementById("finalVariety").style.visibility = "visible";
+        var divobj = document.getElementById('finalVariety');
+       
+        // divobj.style.display='block';
+        divobj.innerHTML = "We suggest you try "+selectedVariety;
+        
+    
+    }
+  </script>
+<script>  
+    function displaycitrusVariety()
+    {
+        console.log("in displaycitrusVariety")
+        //Here we get the total price by calling our function
+        //Each function returns a number so by calling them we add the values they return together
+        
+        
+        var selectedVariety = getcitrusFruit() 
+        
+        console.log(selectedVariety)
+        //display the result
+        // document.getElementById("finalVariety").style.visibility = "visible";
+        var divobj = document.getElementById('finalVariety');
+       
+        // divobj.style.display='block';
+        divobj.innerHTML = "We suggest you try "+selectedVariety;
+        
+    
+    }
+  </script>
 
+<script>  
+    function displaytreeVariety()
+    {
+        console.log("in displayVariety")
+        //Here we get the total price by calling our function
+        //Each function returns a number so by calling them we add the values they return together
+        
+        
+        var selectedVariety = gettreeFruit() 
+        
+        console.log(selectedVariety)
+        //display the result
+        // document.getElementById("finalVariety").style.visibility = "visible";
+        var divobj = document.getElementById('finalVariety');
+       
+        // divobj.style.display='block';
+        divobj.innerHTML = "We suggest you try "+selectedVariety;
+        
+    
+    }
+  </script>
+  <script>  
+      function displaytropicalVariety()
+      {
+          console.log("in displaytropicalVariety")
+          //Here we get the total price by calling our function
+          //Each function returns a number so by calling them we add the values they return together
+          
+          
+          var selectedVariety = gettropicalFruit() 
+          
+          console.log(selectedVariety)
+          //display the result
+          // document.getElementById("finalVariety").style.visibility = "visible";
+          var divobj = document.getElementById('finalVariety');
+         
+          // divobj.style.display='block';
+          divobj.innerHTML = "We suggest you try "+selectedVariety;
+          
+      
+      }
+    </script>
 <script>  
     function displayNoFruitVariety()
     {
