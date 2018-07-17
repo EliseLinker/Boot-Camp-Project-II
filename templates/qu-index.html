@@ -32,24 +32,14 @@
         });
   </script>
 
+
 <script type=text/javascript>
 //view sourceprint;
 //In the javascript code
-var theForm = document.forms["varietyform"];
- 
-// function calculateTotal()
-// {
-    //Here we get the total price by calling our function
-    //Each function returns a number so by calling them we add the values they return together
-    // var cakePrice = getCakeSizePrice() + getFillingPrice() + candlesPrice() + insciptionPrice();
-    
-    //display the result
-    // var divobj = document.getElementById('totalPrice');
-    // divobj.style.display='block';
-    // divobj.innerHTML = "Total Price For the Cake $"+cakePrice;
+var theForm = document.forms["varietyform"]; 
 
-// };
 </script>
+
 <!-- <script type=text/javascript>
 $(function hideTotal()
 {
@@ -59,32 +49,11 @@ $(function hideTotal()
 </script> -->
 
 
-<!-- 
-<script type=text/javascript>
-$(function getVariety()
-{
-    console.log("in getvariety")
-    //Here we get the total price by calling our function
-    //Each function returns a number so by calling them we add the values they return together
-    var finalVariety = suggestedVariety;
-    // var cakePrice = getCakeSizePrice() + getFillingPrice() +
-    //                       candlesPrice() + insciptionPrice();
- 
-    //display the result
-    // var divobj = document.getElementById('finalVariety');
-    // divobj.style.display='block';
-    
-    // divobj.innerHTLM = "Here is the Varieties we suggest you try: "+finalVariety;
 
-    document.getElementById('finalVariety').innerHTML = "May we suggest you try "+finalVariety;
-
-});
-</script> -->
 
 </head>
 
-<body onload="hideFruitList()">
-          
+<body onload="hideFruitList(); hidenoFruitListlabel(); hideNoFruitRadio()">
     
   <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
       <!--Use .container-fluid for a full width container-->
@@ -185,13 +154,8 @@ $(function getVariety()
   </div>
   <div class="container-fluid">
     <div class="row">
-        <div class="left col-lg-6 col-md-6 col-xs-12">
-        <!-- <div class="left col-lg-6 col-md-8 col-xs-12">
-            <h2>Which Wine Variety Would You Like?</h2>
-            <p id="test" align="justify">
-                Please answer the following questions to help us find a Wine Variety for you.
-            </p>
-        </div> -->
+        <div class="left col-lg-12 col-md-6 col-xs-2">
+
 <div>
 
   <form action="" id="varietyform" onsubmit="return false;">
@@ -207,7 +171,7 @@ $(function getVariety()
      <div class="row">
         <div class="left col-lg-6 col-md-8 col-xs-12">
      <input type="radio"  name="selectedfruit" value="Yes"
-     onclick="unhideFruitList()","unhideFruitListlabel()"
+     onclick="unhideFruitList(); unhideFruitListlabel(); hidenoFruitListlabel(); hideNoFruitRadio()"
      />
      Yes, I would like my wine to taste fruity.
      </div>
@@ -215,22 +179,19 @@ $(function getVariety()
      <div class="row">
         <div class="left col-lg-6 col-md-8 col-xs-12">
      <input type="radio"  name="selectedfruit" value="No"
-     onclick="" />
+     onclick="hideFruitList(); unhidenoFruitListlabel(); unhideNoFruitRadio() "
+    />
      No, I do not want my wine to taste fruity.
      </div> 
      </div> 
 
      <br/>
-    <div class="row">
-        <div class="left col-lg-6 col-md-8 col-xs-12">
-        </div>
-    </div>
-
+    
      <label id=fruitListlabel>Choose a fruit flavor you prefer:</label>
   
      
      <select  id="fruitlist" name='fruitlist'
-     onchange="getFruit()">
+     onchange="displayVariety()">
      <option value="None">Select a fruit flavor</option>
      <option value="Blackberry">Blackberry</option>
      <option value="Black Cherry">Black Cherry</option>
@@ -239,8 +200,48 @@ $(function getVariety()
      <option value="Lime">Lime</option>
      <option value="Pineapple">Pineapple</option>
      <option value="Raspberry">Raspberry</option>
+    </select>
 
-     
+     <div class="row">
+      <div class="left col-lg-6 col-md-8 col-xs-12">
+
+
+
+
+ <br/>
+
+ <!-- This is for the non fruity wines -->
+ <div class="row">
+  <div class="left col-lg-6 col-md-8 col-xs-12">
+   <label id=nofruitListlabel>Please choose which flavors you prefer:</label>
+  </div>
+ </div>   
+ <div class="row">
+    <div class="left col-lg-6 col-md-8 col-xs-12">
+ <input type="radio" id="selectedNoFruit1"  name="selectedNoFruit" value="11"
+ onclick="displayNoFruitVariety()" />
+ <label id=radionf1>Rich, Full Bodied Oak Flavors</label>
+ </div>
+ </div>
+
+ <div class="row">
+    <div class="left col-lg-6 col-md-8 col-xs-12">
+ <input type="radio" id="selectedNoFruit2"  name="selectedNoFruit" value="4"
+ onclick="displayNoFruitVariety()"/>
+ <label id=radionf2>A complex medium body astringic and bitter flavor</label>
+ </div>
+</div>
+<div class="row">
+    <div class="left col-lg-6 col-md-8 col-xs-12">
+<input type="radio" id="selectedNoFruit3" name="selectedNoFruit" value="12"
+ onclick="displayNoFruitVariety()" />
+<label id=radionf3>Neither</label>
+</div> 
+</div>
+
+
+  </div>
+</div>
 
     <!-- </select>
     <br/>
@@ -260,13 +261,35 @@ $(function getVariety()
     <input type="text"  id="theinscription"
     name="theinscription" value="Enter Inscription"  />
     </p> -->
-    <!-- <div id="finalVariety"></div> -->
+    
+    <!-- This is the id that displays the final variety -->
+    
+    <br/>
+    
+    <div class ="container-fluid"
+    <div class="row" style = "background-color:rgb(204, 255, 153)">
+        <div class="text-center col-xl-12 col-lg-12 col-md-8 col-xs-12">
+    <h1 id="finalVariety"style="size: 30px; color: rgb(153, 51, 255); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+    </h1>
+    
+    </div>
+    </div>
 
-
-
-    <div id="finalVariety" style="display: block;">We suggest you try these varietys:</div>
+    
     </fieldset>
 </form>
+
+<script>
+  function hidefinalVariety() {
+  document.getElementById("finalVariety").style.visibility = "hidden";
+  }
+ </script>        
+
+<script>
+  function unhidefinalVariety() {
+  document.getElementById("finalVariety").style.visibility = "visible";
+  }
+ </script>        
 
 <script>
   function hideFruitList() {
@@ -294,58 +317,179 @@ $(function getVariety()
        document.getElementById("fruitListlabel").style.visibility = "visible";
     }
 </script>
- 
-</div>
-</div>
-<!-- <script src="{{ url_for('static', filename='js/varietyquestions.js') }}"></script> -->
 
-<!-- 
-  <div class="left col-lg-6 col-md-8 col-xs-12">
-        <h4>Do you like Fruit Flavors?</h4>
-        <form>
-            <input type=text size=10 name=fruitquestion>
-            <a href='#' id=process_input><button id="search" type="button" class="btn btn-success">Submit</button></a>
-        </form>
-        <p id=result> 
-            <!-- Jsonified ramdom text generated goes here -->
-        <!-- </p> -->
-    <!-- </div> --> 
+<!-- No Fruit Radio Buttons Hide UnHide  -->
+<script>
+    function hideNoFruitRadio() {
+    console.log("in hideNoFruitRadio")
+    
+    document.getElementById("selectedNoFruit1").style.visibility = "hidden";
+    document.getElementById("radionf1").style.visibility = "hidden";
+    
+    document.getElementById("selectedNoFruit2").style.visibility = "hidden";
+    document.getElementById("radionf2").style.visibility = "hidden";
+    
+    document.getElementById("selectedNoFruit3").style.visibility = "hidden";
+    document.getElementById("radionf3").style.visibility = "hidden";
+    
+  }
+  </script>
+  
+  <script>
+    function hidenoFruitListlabel() {
+    console.log("in hidenoFruitListLabel")
+    document.getElementById("nofruitListlabel").style.visibility = "hidden";
+    }
+   </script>
+
+<script>
+    function unhideNoFruitRadio() {
+    console.log("in unhideNoFruitRadio")
+    
+    document.getElementById("selectedNoFruit1").style.visibility = "visible";
+    document.getElementById("radionf1").style.visibility = "visible";
+    
+    document.getElementById("selectedNoFruit2").style.visibility = "visible";
+    document.getElementById("radionf2").style.visibility = "visible";
+    
+    document.getElementById("selectedNoFruit3").style.visibility = "visible";
+    document.getElementById("radionf3").style.visibility = "visible";
+    
+  }
+  </script>
+  
+  <script>
+    function unhidenoFruitListlabel() {
+    console.log("in unhidenoFruitListLabel")
+    document.getElementById("nofruitListlabel").style.visibility = "visible";
+    }
+   </script>
+
+</div>
+</div>
+
+<!-- populate arrays  -->
+<script type=text/javascript>
+  var fruit_variety= new Array();
+  fruit_variety["None"]='';
+  fruit_variety["Blackberry"]='Melbac';
+  fruit_variety["Black Cherry"]='Pinot Noir';
+              // fruit_variety["Cherry"]=7; 
+  fruit_variety["Currant"]='Cabernet Sauvignon, Zinfandel, or Merlot';
+  fruit_variety["Lime"]='Sauvignon Blanc';
+  fruit_variety["Pineapple"]='Chardonay';
+  fruit_variety["Raspberry"]='Pinot Noir, Syrah, Rose, Zinfadel, or Merlot';
+    console.log("after fruit variety array")
+    console.dir(fruit_variety)
+
+  </script>
+<script type=text/javascript>
+  var nofruit_variety= new Array();
+  nofruit_variety["None"]='';
+  nofruit_variety["11"]='Cabernet Sauvignon';
+  nofruit_variety["4"]='Bordeaux, Rose';
+  nofruit_variety["12"]='Whiskey';
+    console.log("after no fruit variety array")
+    console.dir(nofruit_variety)
+
+  </script>
+
+<!-- Functions  -->
+    <script >
+      function getFruit()
+      {
+        console.log("in getFruit")
+//This function finds the filling price based on the
+//drop down selection
+    var suggestedVariety="";
+    //Get a reference to the form id="cakeform"
+    var theForm = document.forms["varietyform"];
+    //Get a reference to the select id="filling"
+     var selectedFruit = theForm.elements["fruitlist"];
+ 
+    //set cakeFilling Price equal to value user chose
+    //For example filling_prices["Lemon".value] would be equal to 5
+    suggestedVariety = fruit_variety[selectedFruit.value];
+    console.log(suggestedVariety)
+    //finally we return cakeFillingPrice
+    return suggestedVariety;
+}
+</script>
+ 
+ <script >
+    function getNoFruit()
+    {
+      console.log("in getNoFruit")
+//This function finds the filling price based on the
+//drop down selection
+  var suggestedVariety="";
+  //Get a reference to the form id="cakeform"
+  var theForm = document.forms["varietyform"];
+  //Get a reference to the select id="filling"
+   var selectedNoFruit = theForm.elements["selectedNoFruit"];
+
+  //set cakeFilling Price equal to value user chose
+  //For example filling_prices["Lemon".value] would be equal to 5
+  suggestedVariety = nofruit_variety[selectedNoFruit.value];
+  console.log(suggestedVariety)
+  //finally we return cakeFillingPrice
+  return suggestedVariety;
+}
+</script>     
+
+      <script>  
+        function displayVariety()
+        {
+            console.log("in displayVariety")
+            //Here we get the total price by calling our function
+            //Each function returns a number so by calling them we add the values they return together
+            
+            
+            var selectedVariety = getFruit() 
+            
+            console.log(selectedVariety)
+            //display the result
+            // document.getElementById("finalVariety").style.visibility = "visible";
+            var divobj = document.getElementById('finalVariety');
+           
+            // divobj.style.display='block';
+            divobj.innerHTML = "We suggest you try "+selectedVariety;
+            
+        
+        }
+      </script>
+
+<script>  
+    function displayNoFruitVariety()
+    {
+        console.log("in displayNoFruitVariety")
+        //Here we get the total price by calling our function
+        //Each function returns a number so by calling them we add the values they return together
+        
+        var selectedVariety = getNoFruit() 
+        
+        console.log(selectedVariety)
+        //display the result
+        // document.getElementById("finalVariety").style.visibility = "visible";
+        var divobj = document.getElementById('finalVariety');
+       
+        // divobj.style.display='block';
+        divobj.innerHTML = "We suggest you try "+selectedVariety;
+        
+    
+    }
+  </script>
+      <!-- <script>
+        function hideVariety()
+        {
+            var divobj = document.getElementById('finalVariety');
+            divobj.style.display='none';
+        }
+      </script> -->
+
   </div>
 </div>
-<script type=text/javascript>
-  $(function getFruit()
-  {
-    console.log("in getFruit");
-    var fruit_variety= new Array();
-       fruitlist["None"]='';
-       fruitlist["Blackberry"]='Melbac';
-       fruitlist["Black Cherry"]='Pinot Noir';
-       // fruit_variety["Cherry"]=7; 
-       fruitlist["Currant"]='Cabernet Sauvignon, Zinfandel, or Merlot';
-       fruitlist["Lime"]='Sauvignon Blanc';
-       fruitlist["Pineapple"]='Chardonay';
-       fruitlist["Raspberry"]='Pinot Noir, Syrah, Rose, Zinfadel, or Merlot';
-   
-      console.log("fruitlist " + fruitlist);
-  
-      var suggestedVariety="";
-      //Get a reference to the form id="cakeform"
-      var theForm = document.forms["varietyform"];
-      //Get a reference to the select id="filling"
-       var selectedFruit = theForm.elements["fruitlist"];
-      console.log(selectedFruit);
-      //set cakeFilling Price equal to value user chose
-      //For example filling_prices["Lemon".value] would be equal to 5
-      
-       suggestedVariety = fruit_variety[selectedFruit.value];
-       console.log(fruit_variety[selectedFruit.value]);
-  
-      //finally we return cakeFillingPrice
-      return suggestedVariety;
-      console.log(suggestedVariety);
-      document.getElementById('finalVariety').innerHTML = "May we suggest you try "+suggestedVariety;
-  });
-  </script>
+
 </body>
 
 <div class="container-fluid">
