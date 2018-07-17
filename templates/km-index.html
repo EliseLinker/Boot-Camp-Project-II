@@ -128,7 +128,10 @@
                 <h3>Let us recommend you a wine...</h3>
                 <p id="test" style="text-align:justify">
                     <h4>Purpose</h4>
-                    
+                    In this project we applied the Kmeans algorithm to create clusters of of words that tend to be used with each other 
+                    in our wine descriptions. The goal is to find a one-to-one relationship between the wine varieties and the clusters 
+                    created. Therefore, we would have a set of words that describe a wine variety and will help to identify and recommend
+                    a particular wine.
 
                     <h4>Clusters</h4>
                     <strong>
@@ -157,8 +160,16 @@
                     Cluster 11 [full bodied full bodied wine full bodied wine bodied wine ripe fruit black rich texture]
                     </strong>
 
-                    <h4>Challenges</h4>
-                    
+                    <h4>Steps</h4>
+                    0.Clean the data. We limit wine varieties to those where there are more than 2000 entries in the dataset, 12 types total.
+                    <br>1.Use TfidfVectorizer to create tokens out of each description 
+                    <br>2. Use stopwords and regular expressions to remove unwanted words like punctuations, numbers, and other words.
+                    <br>3. Run different models of n-values for different n-grams to be extracted
+                    <br>4. Use stemming method to reduce words to the root (we wanted to remove inflected forms of a word lets say dry and dryness, sweet sweeter) 
+                    <br>5. Apply kMeans algorithm to cluster our description vectors 
+                    <br>6. Find the top "n" words (by frequency) in each cluster 
+                    <br>7. Inspect each cluster and determine if a wine variation is more prevalent than other in each cluster, map each wine variation (and their count) 
+                    in each of the clusters.
                     <a href="https://github.com/EliseLinker/Boot-Camp-Project-II/blob/master/models">Click to see the code!!</a>
 
                     <h4>Results</h4>
@@ -167,7 +178,7 @@
                     allows us to see how people are generally describing these kinds of wines, which is pretty cool!
 
                 </p>
-                <h1><a href="/variety_questionaire">Recommend me a wine!</a></h1>
+                <!-- <h1><a href="/variety_questionaire">Recommend me a wine!</a></h1> -->
             </div>
 
             <div class="col-lg-5 col-md-4 col-xs-10">
@@ -182,7 +193,14 @@
                         <img src="/static/css/img/kmean.png" alt="wine&words" height="600" width="800">
                     </div>
                 </div>
-                <div class="row">
+                <div style="text-align: center" class="col-lg-5 col-md-4 col-xs-10"></div>
+                <div class='row'>
+                    <h1>
+                        <a href="/variety_questionaire" style="text-align: center ; color: darkred">Recommend me a wine!</a>
+                    </h1>
+                </div>
+                <div></div>
+                <!-- <div class="row">
                     <div class='tableauPlaceholder' id='viz1531805111002' style='position: relative'>
                     <noscript>
                         <a href='#'>
@@ -214,7 +232,7 @@
                 var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; 
                 vizElement.parentNode.insertBefore(scriptElement, vizElement);                
                 </script>       
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
