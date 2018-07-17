@@ -57,7 +57,7 @@ def summary():
 
 @app.route("/data")
 def data():
-    return render_template("chart-index.html")
+    return render_template("data-index.html")
 
 @app.route("/countries")
 def country():
@@ -228,6 +228,14 @@ def text():
         return jsonify(result="Try again")
         
 
+@app.route("/kmeans")
+def kmeans():
+    return render_template("km-index.html")
+
+
+@app.route("/chart")
+def chart():
+    return render_template("chart-index.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

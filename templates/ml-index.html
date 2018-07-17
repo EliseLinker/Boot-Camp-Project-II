@@ -91,10 +91,10 @@
                                 <a href="/d3">D3</a>
                             </li>
                             <li>
-                                <a href="/reg-index">Regression Analysis</a>
+                                <a href="/kmeans">Kmeans Cluster</a>
                             </li>
                             <li>
-                                <a href="/ml-index">Machine Learning</a>
+                                <a href="/models">Markov Chain</a>
                             </li>
                         </ul>
                     </li>
@@ -115,7 +115,7 @@
             <div class="row">
                 <div class="left col-lg-8 col-md-8 col-xs-12">
                     <h1 id=# "header" style="color: rgb(59, 5, 59); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Wine Reviews</h1>
-                    <h2 style="color: rgb(15, 78, 39); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Project II</h2>
+                    <h2 style="color: rgb(15, 78, 39); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Project III</h2>
                     <!-- <img src="fall-rose-wine.jpg" alt="Wine picture" width="300" height="300" class="pull-left img_responsive img-rounded"> -->
                 </div>
             </div>
@@ -124,23 +124,54 @@
     <div class="container-fluid">
         <div class="row">
             <div class="left col-lg-6 col-md-8 col-xs-12">
-                <h2>Wine Descriptions Generator</h2>
-                <p id="test" align="justify">
-                    This is a placeholder for additional information
+                <h2>Wine Reviews Generator</h2>
+                <h3>Fake your wine knowledge with Markov Chains!</h3>
+                <p id="test" style="text-align:justify">
+                    <h4>Purpose</h4>
+                    In this project we tried to explore the conventional nature of wine reviews to automatically generate our own reviews. 
+                    Our initial thought was: <strong>You too can talk like a wine snob!</strong>. Stuff like backward, blowsy, hot, flabby, can sound more like a
+                    dialogue from a yoga class than a daunting list of adjectives from a wine tasting.
+                    
+                    <h4>What we did</h4>
+                    In order to fake our wine reviews, we trained an <strong>Markov chain</strong>
+                    For our text generator we used a considerably large corpus of <strong>+110k wine reviews</strong> from Winemag.com
+                    
+                    <h4>Challenges</h4>
+                    We start using a chain of order-one but we saw that the text didn't have that much of semantic sense and it didn't conform to 
+                    the actual "correct" English. To fix this we use a higher order chain.
+                    We didn't calculated the probabilities of the transitions, we built the chain, as a Python dictionary, and we stored
+                    the words that occur after each bi-gram in a list that can be accessed using the bigram key to the chain disctionary.   
+                    The random.choice function allowed us to skip the calculation of the transition probabilities because it will choose
+                    from the list of possible next states in accordance with the frequencies at which they occur. 
+                    <a href="https://github.com/EliseLinker/Boot-Camp-Project-II/blob/master/models/Markov%20Chain.ipynb">Click here to see the code!!</a>
+
+                    <h4>Results</h4>
+                    Overall, the results of the Markov chain were mixed, some results are self-contradictory or nonsensical, but
+                    many are quite coherent.
+
                 </p>
             </div>
-        </div>
-    </div>
-    <div>
-        <div class="left col-lg-6 col-md-8 col-xs-12">
-            <h4>Do you like our webpage?</h4>
-            <form>
-                <input type=text size=10 name=question>
-                <a href='#' id=process_input><button id="search" type="button" class="btn btn-success">Submit</button></a>
-            </form>
-            <p id=result> 
-                <!-- Jsonified ramdom text generated goes here -->
-            </p>
+
+            <div class="col-lg-5 col-md-4 col-xs-10">
+            <!-- <div class="row"> -->
+                <div class="row">
+                <div class="col-md-12 col-lg-12">
+                <img src="/static/css/img/tag-cloud-940.jpg" alt="wine&words" height="280" width="600">
+                <div class="col-md-12 col-lg-12">
+                    <h4 style="font-size:150% ; font-weight: bold">Would you like to generate a random wine review with a Markov chain?</h4>
+                    <form>
+                        <input type=text size=10 name=question>
+                        <a href='#' id=process_input><button id="search" type="button" class="btn btn-success">Submit</button></a>
+                    </form>
+                    <div class="row">
+                    <p id=result style=" text-align: justify; font-family: initial ; font-size:130% ; font-weight: bold; color:rgb(66, 3, 66)" > 
+                        <!-- Jsonified ramdom text generated goes here -->
+                    </p>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- <tbody id="tbody00"></tbody>
@@ -159,12 +190,12 @@
 </div>
     <!-- jQuery for Bootstrap JavaScript plugins -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
     $(document).ready(function (){
         $("#test").append("<strong>This is a test appending a text str using ajax</strong>")
     });
 
-    </script>
+    </script> -->
 
 </body>
 
